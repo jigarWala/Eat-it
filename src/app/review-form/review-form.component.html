@@ -1,0 +1,22 @@
+<pre>
+    {{reviewForm.value|json}}
+</pre>
+<div class="w-50 border p-2">
+<form [formGroup]="reviewForm">
+    <div class="form-group">
+        <label for="author-name">Author</label>
+        <input formControlName="author" type="text" class="form-control" id="author-name">
+    </div>
+    <div class="form-group">
+        <label for="review-stars">Stars</label>
+        <input formControlName="stars" type="number" class="form-control" id="review-stars">
+    </div>
+    <div class="form-group">
+        <label for="review-body">Description</label>
+        <input formControlName="body" type="text" class="form-control" id="review-body">
+    </div>
+    <button class="btn btn-dark form-group" (click)="submitReviewHandler($event)">submit</button>
+
+    <button class="btn btn-dark form-group ml-2" (click)="cancelReviewHandler($event)">cancel</button>    
+</form>
+</div>

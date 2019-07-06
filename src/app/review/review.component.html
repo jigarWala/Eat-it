@@ -1,0 +1,10 @@
+
+
+<div *ngFor="let review of reviews" class="alert alert-info">
+    <span> {{review.stars}}</span> &mdash; <span>{{review.author}}</span>
+    <hr>
+    <div>
+        {{review.body}}
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+
+
+<div>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th> Qty</th>
+            <th>Total</th>
+        </tr>
+        <tr *ngFor="let obj of cartItems" >
+            
+            
+            <td>{{obj.item.id}}</td>
+            <td>{{obj.item.name}}</td>
+            <td>{{obj.item.price|currency:"INR"}}</td>
+            <td>
+                <!-- {{onj}} -->
+                <app-count [value]="obj.qty" (countChange)="countChangeHandler($event,obj.item)"></app-count>
+            </td>
+            <td>{{obj.item.price*obj.qty|currency:"INR"}}</td>
+
+            <!-- <pre >
+                {{obj|json}}
+            </pre> -->
+        </tr>
+        <tr *ngIf="totalAmount>0">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{totalAmount|currency:"INR"}}</td>
+        </tr>    
+    </table>
+
+</div>
+

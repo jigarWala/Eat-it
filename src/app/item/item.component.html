@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-1">
+
+    <span class="badge badge-info">{{idx+1}}</span> &nbsp;
+
+  </div>
+  <div class="col-3">
+
+
+    <img [src]="item.imgPath" alt="" class="img-fluid">
+
+  </div>
+  <div class="col-8">
+    <div class="row d-block">
+
+      <h4 class="d-block mx-2">{{item.name}}</h4>
+      <h4 class="d-block mx-2">{{item.price|currency:"INR"}}</h4>
+      <div *ngIf="item.canBuy">
+        <button class="btn btn-info d-inline-block" (click)="buyItem($event)">
+          buy
+        </button>
+        <app-count *ngIf="count>0" [value]="count" (countChange)="buyItem($event)"></app-count>
+      </div>
+    </div>
+    <div class="row d-block ml-1">
+      <div class="row">
+
+        <ul class="nav nav-tabs mt-2">
+          <li class="nav-item">
+            <a href="/" [ngClass]="{'nav-link':true,active:isCurrentTab(1)}"
+              (click)="changeTab($event,1)">Description</a>
+          </li>
+          <li class="nav-item">
+            <a href="/" [ngClass]="{'nav-link':true,active:isCurrentTab(2)}"
+              (click)="changeTab($event,2)">Integredients</a>
+          </li>
+          <li class="nav-item">
+            <a href="/" [ngClass]="{'nav-link':true,active:isCurrentTab(3)}" (click)="changeTab($event,3)">Reviews</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row d-block">
+        <div *ngIf="isCurrentTab(1)">{{item.description}}</div>
+        <div *ngIf="isCurrentTab(2)">Integredients</div>
+
+        <div *ngIf="isCurrentTab(3)" class="w-100">
+
+          <app-review [value]="reviews"></app-review>
+          <button *ngIf="!addReviewFlag" (click)="addReviewHandler($event)" class="btn btn-light">Add Review</button>
+          <app-review-form *ngIf="addReviewFlag" (cancelEvent)="toggleForm($event)"></app-review-form>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
