@@ -1,0 +1,16 @@
+<hr>
+    <i class="fa fa-shopping-cart"></i> &nbsp;
+    <span class="badge badge-warning">{{numberOfItemsinCart}}</span>  item(s) in cart
+
+<hr>
+
+<ul class="list-group">
+  <li class="list-group-item my-2" *ngFor="let item of items; let idx = index" >
+      <app-item [value]="item"
+                [howManyPurchased]="getItemCount(item.id)"
+                [idx]="idx"
+                (countChange)="updateCart($event)" >
+      </app-item>
+</li>
+
+</ul>

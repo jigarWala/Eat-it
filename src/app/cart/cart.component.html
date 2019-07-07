@@ -1,6 +1,5 @@
-
-
 <div>
+
     <table class="table">
         <tr>
             <th>Id</th>
@@ -14,16 +13,13 @@
             
             <td>{{obj.item.id}}</td>
             <td>{{obj.item.name}}</td>
-            <td>{{obj.item.price|currency:"INR"}}</td>
+            <td>{{obj.item.price|currency:obj.item.currency}}</td>
             <td>
                 <!-- {{onj}} -->
                 <app-count [value]="obj.qty" (countChange)="countChangeHandler($event,obj.item)"></app-count>
             </td>
-            <td>{{obj.item.price*obj.qty|currency:"INR"}}</td>
-
-            <!-- <pre >
-                {{obj|json}}
-            </pre> -->
+            <td>{{obj.item.price*obj.qty|currency:obj.item.currency}}</td>
+            
         </tr>
         <tr *ngIf="totalAmount>0">
             <td></td>

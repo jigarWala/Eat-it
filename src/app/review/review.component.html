@@ -1,7 +1,12 @@
 
 
-<div *ngFor="let review of reviews" class="alert alert-info">
-    <span> {{review.stars}}</span> &mdash; <span>{{review.author}}</span>
+<div *ngFor="let review of reviews" class="alert alert-info mt-1">
+    
+
+    <span *ngFor="let i of counter(review.stars)"><i class="fa fa-star text-warning"></i></span> 
+    
+    
+    &mdash; <span>{{review.author}}</span>
     <hr>
     <div>
         {{review.body}}

@@ -20,7 +20,13 @@ export class ItemService {
     let apiUrl = `http://localhost:8181/api/products/${id}/reviews`;
     return this._http.get(apiUrl) // async
   }
-
+  
+  postReviews(review){
+    // console.log(review);
+    let id = review.itemId;
+    let apiUrl = `http://localhost:8181/api/products/${id}/reviews`;
+    this._http.post(apiUrl,review).toPromise().then(console.log).catch(console.error)
+  }
 
 }
 

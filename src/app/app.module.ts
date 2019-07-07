@@ -10,6 +10,8 @@ import { CartComponent } from './cart/cart.component';
 import { CountComponent } from './count/count.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReviewFormComponent } from './review-form/review-form.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ReviewFormComponent } from './review-form/review-form.component';
     ReviewComponent,
     CartComponent,
     CountComponent,
-    ReviewFormComponent
+    ReviewFormComponent,
+    ItemListComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

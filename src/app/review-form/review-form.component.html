@@ -1,19 +1,29 @@
-<pre>
+<!-- <pre>
     {{reviewForm.value|json}}
 </pre>
+
+<pre>
+    pristine {{reviewForm.pristine}}
+    untouched {{reviewForm.untouched}}
+    dirty {{reviewForm.dirty}}
+    
+</pre> -->
 <div class="w-50 border p-2">
 <form [formGroup]="reviewForm">
     <div class="form-group">
         <label for="author-name">Author</label>
-        <input formControlName="author" type="text" class="form-control" id="author-name">
+        <input formControlName="author" type="text" class="form-control" [class.is-invalid]="errors.author"  id="author-name">
+        <div class="invalid-feedback">{{errors.author}}</div>
     </div>
     <div class="form-group">
         <label for="review-stars">Stars</label>
-        <input formControlName="stars" type="number" class="form-control" id="review-stars">
+        <input formControlName="stars" type="number" class="form-control"  [class.is-invalid]="errors.stars" min="0" max="5" id="review-stars">
+        <div class="invalid-feedback">{{errors.stars}}</div>
     </div>
     <div class="form-group">
         <label for="review-body">Description</label>
-        <input formControlName="body" type="text" class="form-control" id="review-body">
+        <input formControlName="body" type="text" class="form-control" [class.is-invalid]="errors.body" id="review-body">
+        <div class="invalid-feedback">{{errors.body}}</div>
     </div>
     <button class="btn btn-dark form-group" (click)="submitReviewHandler($event)">submit</button>
 

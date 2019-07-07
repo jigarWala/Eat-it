@@ -11,21 +11,13 @@ export class AppComponent {
   title = 'eat-IT-v1';
 
   
-  numberOfItemsinCart = 0;
-
-  constructor(private cartService:CartService,private itemService:ItemService) {
+  constructor() {
 
   }
-  items:Array<any> = []
-
+  
   ngOnInit() {
-    this.itemService.getItems().subscribe((items:any)=>{
-      this.items = items;
-    })
 
   }
-  updateCart(obj) {
-    this.cartService.buyItem(obj.item,obj.count);
-  }
+
 
 }

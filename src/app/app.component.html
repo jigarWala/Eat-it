@@ -1,23 +1,23 @@
-<!-- As a heading -->
-<nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">{{title}}</span>
-</nav>
 <div class="container-fluid">
+    <ul class="nav nav-pills navbar-light bg-light">
+      <li class="nav-item ">
+        
+          <a class="navbar-brand" href="/">{{title}}</a>
+      </li>
 
-  <hr>
-    <i class="fa fa-shopping-cart"></i> &nbsp;
-    <span class="badge badge-warning">{{numberOfItemsinCart}}</span>  item(s) in cart
-    <app-cart ></app-cart>
+      <li class="nav-item">
+          <a class="nav-link " routerLink="/items">items</a>
+        </li>
+  
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/cart">cart</a>
+      </li>
 
-  <hr>
+    </ul>
 
 
-  <ul class="list-group">
-    <li class="list-group-item my-2" *ngFor="let item of items; let idx = index">
-      <app-item [value]="item" [idx]="idx" (countChange)="updateCart($event)" ></app-item>
-
-    </li>
-
-  </ul>
+    
+  <router-outlet></router-outlet>  
 
 </div>
+

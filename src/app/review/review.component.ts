@@ -13,6 +13,13 @@ export class ReviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+  }
+  counter(n:number){
+    
+    return new Array(n);
+    
+    
   }
 
 }

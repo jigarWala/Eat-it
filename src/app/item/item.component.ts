@@ -14,6 +14,7 @@ export class ItemComponent implements OnInit {
 
   reviews:Array<any>=[];
   
+  @Input("howManyPurchased")
   count = 0;
 
   @Input()
@@ -63,11 +64,11 @@ export class ItemComponent implements OnInit {
     if(tab===3){
       this.itemService.getReviews(this.item.id).subscribe((response:any)=>{
         this.reviews = response;
-        console.log(response)
+        // console.log(response)
       });
     }
   }
-
+  
   addReviewHandler(event){
     event.preventDefault();
     // event.stopPropogation();
@@ -78,4 +79,11 @@ export class ItemComponent implements OnInit {
     // console.log("item component cancelling")
     this.addReviewFlag = false;
   }
+  reviewSubmitHandler(review){
+    
+    this.reviews.push(review);    
+    // console.log(review);
+    this.itemService.postReviews({...review,itemId:this.item.id});
+  }
+
 }

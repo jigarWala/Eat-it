@@ -1,3 +1,5 @@
+
+
 <div class="row">
   <div class="col-1">
 
@@ -14,7 +16,7 @@
     <div class="row d-block">
 
       <h4 class="d-block mx-2">{{item.name}}</h4>
-      <h4 class="d-block mx-2">{{item.price|currency:"INR"}}</h4>
+      <h4 class="d-block mx-2">{{item.price|currency:item.currency}}</h4>
       <div *ngIf="item.canBuy">
         <button class="btn btn-info d-inline-block" (click)="buyItem($event)">
           buy
@@ -47,7 +49,7 @@
 
           <app-review [value]="reviews"></app-review>
           <button *ngIf="!addReviewFlag" (click)="addReviewHandler($event)" class="btn btn-light">Add Review</button>
-          <app-review-form *ngIf="addReviewFlag" (cancelEvent)="toggleForm($event)"></app-review-form>
+          <app-review-form *ngIf="addReviewFlag" (closeForm)="toggleForm($event)" (reviewSubmit)="reviewSubmitHandler($event)"></app-review-form>
 
         </div>
 
